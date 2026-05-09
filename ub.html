@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Happy Birthday My Love 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#1a0b2e,#2e1065,#4c1d95,#6d28d9);
+    overflow-x:hidden;
+    color:white;
+}
+
+/* VIDEO BACKGROUND */
+.bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-3;
+    filter:brightness(0.25);
+}
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom, rgba(20,0,40,0.35), rgba(10,0,20,0.96));
+    z-index:-2;
+}
+
+/* FLOATING HEARTS */
+.heart{
+    position:fixed;
+    color:#EC4899;
+    font-size:18px;
+    animation:float 6s linear infinite;
+    z-index:-1;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) scale(1);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-10vh) scale(1.8);
+        opacity:0;
+    }
+}
+
+/* COUNTDOWN */
+.intro{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:999;
+}
+
+#countdown{
+    font-size:120px;
+    font-weight:bold;
+    color:#F472B6;
+    text-shadow:0 0 30px #EC4899;
+}
+
+.intro p{
+    margin-top:20px;
+    font-size:22px;
+    opacity:0.8;
+}
+
+/* HERO SECTION */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:95px;
+    font-family:'Great Vibes',cursive;
+    color:#F9A8D4;
+    text-shadow:0 0 25px rgba(255,126,179,0.8);
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px #EC4899; }
+    to{ text-shadow:0 0 40px #F9A8D4; }
+}
+
+.hero p{
+    max-width:950px;
+    margin-top:25px;
+    line-height:2;
+    font-size:20px;
+    opacity:0.9;
+}
+
+.typewriter{
+    margin-top:25px;
+    font-size:24px;
+    white-space:nowrap;
+    overflow:hidden;
+    border-right:3px solid white;
+    width:0;
+    animation:typing 7s steps(70,end) forwards, blink .7s infinite;
+}
+
+@keyframes typing{
+    from{width:0;}
+    to{width:100%;}
+}
+
+@keyframes blink{
+    50%{border-color:transparent;}
+}
+
+/* BUTTON */
+.btn{
+    margin-top:30px;
+    padding:14px 30px;
+    border:none;
+    border-radius:40px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(10px);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,0.2);
+    transition:0.4s;
+}
+
+.btn:hover{
+    background:#EC4899;
+    transform:translateY(-4px) scale(1.05);
+}
+
+/* SECTIONS */
+.section{
+    padding:100px 20px;
+    text-align:center;
+}
+
+.section h2{
+    font-size:60px;
+    margin-bottom:25px;
+    color:#FCE7F3;
+    font-family:'Great Vibes',cursive;
+}
+
+.section p{
+    max-width:950px;
+    margin:auto;
+    line-height:2;
+    font-size:19px;
+    opacity:0.9;
+}
+
+/* GLASS CARD */
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    padding:35px;
+    margin:25px auto;
+    max-width:850px;
+    box-shadow:0 0 25px rgba(236,72,153,0.25);
+}
+
+/* GALLERY */
+.gallery{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:25px;
+    transition:0.4s;
+    box-shadow:0 0 25px rgba(236,72,153,0.35);
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* MUSIC BUTTON */
+.music-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:100;
+    background:#EC4899;
+    border:none;
+    color:white;
+    padding:14px 20px;
+    border-radius:50px;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(255,92,138,0.5);
+}
+
+/* FOOTER */
+.footer{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.footer h2{
+    font-size:70px;
+    font-family:'Great Vibes',cursive;
+    color:#FCE7F3;
+}
+
+.footer p{
+    margin-top:20px;
+    line-height:2;
+    font-size:20px;
+    max-width:950px;
+    margin-inline:auto;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero h1{
+    font-size:60px;
+}
+
+.section h2,
+.footer h2{
+    font-size:45px;
+}
+
+.hero p,
+.section p,
+.footer p{
+    font-size:17px;
+}
+
+.typewriter{
+    font-size:18px;
+}
+
+#countdown{
+    font-size:90px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- INTRO COUNTDOWN -->
+<div class="intro" id="intro">
+    <div id="countdown">3</div>
+    <p>🎬 Starting Our Romantic Journey...</p>
+</div>
+
+<!-- BACKGROUND VIDEO -->
+<video autoplay muted loop class="bg-video">
+    <source src="222.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="123.mp3" type="audio/mp3">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Happy Birthday My Love 💖</h1>
+
+    <div class="typewriter">
+        You are my favorite feeling, my forever person, my entire universe ❤️
+    </div>
+
+    <p>
+        Today is not just your birthday…
+        Today is the celebration of the most beautiful soul I have ever known.
+        
+        In a world full of temporary things, you became my forever.
+        Your smile became my peace.
+        Your voice became my comfort.
+        Your love became the reason my life feels magical.
+        
+        Every moment with you feels like a beautiful Romantic movie scene —
+        full of emotions, romance, destiny, and unforgettable memories.
+    </p>
+
+    <button class="btn" onclick="document.getElementById('chapter1').scrollIntoView({behavior:'smooth'})">
+        Begin Our Love Story ✨
+    </button>
+</section>
+
+<!-- CHAPTER 1 -->
+<section class="section" id="chapter1">
+    <h2>💫 The Day We Met</h2>
+
+    <div class="card">
+        <p>
+            I still remember the first moment you entered my life.
+            Everything suddenly felt different.
+            
+            It was like the universe paused for a second just to introduce me to the person who would later become my entire world.
+            
+            Your smile carried warmth.
+            Your eyes carried peace.
+            And your presence carried a feeling my heart had been searching for forever.
+            
+            That day, without even realizing it,
+            my soul quietly chose you.
+        </p>
+
+        <button class="btn" onclick="document.getElementById('chapter2').scrollIntoView({behavior:'smooth'})">
+            Continue Story ➜
+        </button>
+    </div>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="section" id="chapter2">
+    <h2>🌹 Falling In Love</h2>
+
+    <div class="card">
+        <p>
+            Loving you never felt difficult.
+            It felt natural.
+            Like stars appearing in the night sky.
+            
+            Slowly, you became my favorite notification,
+            my favorite conversation,
+            my favorite person.
+            
+            I started smiling more because of you.
+            Dreaming more because of you.
+            Believing in forever because of you.
+            
+            I didn’t just fall in love with your beauty.
+            I fell in love with your soul.
+        </p>
+
+        <button class="btn" onclick="document.getElementById('chapter3').scrollIntoView({behavior:'smooth'})">
+            Romantic Memories 📸
+        </button>
+    </div>
+</section>
+
+<!-- MEMORIES -->
+<section class="section" id="chapter3">
+    <h2>📸 Our Romantic Memories</h2>
+
+    <p>
+        Every memory with you became a piece of happiness stored inside my heart forever.
+    </p>
+
+    <div class="gallery">
+        
+        <!-- VIDEO MEMORY -->
+        <video controls autoplay muted loop style="width:100%;height:320px;object-fit:cover;border-radius:25px;box-shadow:0 0 25px rgba(236,72,153,0.35);">
+            <source src="VID-20260509-WA0024.mp4" type="video/mp4">
+        </video>
+
+        <!-- PHOTO MEMORIES -->
+        <img src="a.jpg">
+        <img src="b.jpg">
+        <img src="ll.jpg">
+        <img src="IMG-20260509-WA0029.jpg">
+
+    </div>
+
+    <button class="btn" onclick="document.getElementById('chapter4').scrollIntoView({behavior:'smooth'})">
+        Open Love Letter 💌
+    </button>
+</section>
+
+<!-- CHAPTER 4 -->
+<section class="section" id="chapter4">
+    <h2>💌 My Love Letter</h2>
+
+    <div class="card">
+        <p>
+            My Love,
+            
+            If I could give you one thing in this world,
+            I would give you the ability to see yourself through my eyes.
+            Because then you would realize how incredibly special you truly are.
+            
+            Thank you for every smile.
+            Every late-night conversation.
+            Every beautiful memory.
+            And every little moment that made me fall deeper in love with you.
+            
+            No matter how many birthdays come and go,
+            my heart will always belong to you.
+            
+            Forever yours ❤️
+        </p>
+
+        <button class="btn" onclick="document.getElementById('chapter5').scrollIntoView({behavior:'smooth'})">
+            Final Surprise ✨
+        </button>
+    </div>
+</section>
+
+<!-- FINAL -->
+<section class="footer" id="chapter5">
+    <h2>♾ Forever & Always</h2>
+
+    <p>
+        Happy Birthday to the person who completely changed my life.
+        
+        Just like in Romantic movies,
+        I want dancing moments in the rain with you,
+        long drives under city lights,
+        emotional hugs,
+        endless laughter,
+        and a forever ending where we never let go of each other.
+        
+        You are not just my lover.
+        You are my safest place.
+        My favorite story.
+        My home.
+        My forever.
+        
+        I love you endlessly ❤️
+    </p>
+
+    <button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        Replay Our Love Story 🎬
+    </button>
+</section>
+
+<script>
+
+/* COUNTDOWN */
+let count = 3;
+const countdown = document.getElementById('countdown');
+const intro = document.getElementById('intro');
+
+const timer = setInterval(()=>{
+
+    if(count > 0){
+        countdown.innerHTML = count;
+        count--;
+    }
+    else if(count === 0){
+        countdown.innerHTML = 'GO ❤️';
+        count--;
+    }
+    else{
+        clearInterval(timer);
+        intro.style.display = 'none';
+    }
+
+},1000);
+
+/* FLOATING HEARTS */
+setInterval(()=>{
+
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '❤️';
+
+    heart.style.left = Math.random()*100 + 'vw';
+    heart.style.animationDuration = (3 + Math.random()*5) + 's';
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+
+},200);
+
+/* MUSIC */
+function toggleMusic(){
+
+    const music = document.getElementById('music');
+
+    if(music.paused){
+        music.play();
+    }
+    else{
+        music.pause();
+    }
+}
+
+</script>
+
+</body>
+</html>
