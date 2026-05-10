@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secret Birthday Love</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:linear-gradient(135deg,#0f172a,#1e1b4b,#312e81,#7c3aed);
+      color:white;
+      overflow-x:hidden;
+      overflow-y:auto;
+      min-height:100vh;
+    }
+
+    .screen{
+      width:100%;
+      min-height:100vh;
+      display:none;
+      justify-content:flex-start;
+      align-items:center;
+      flex-direction:column;
+      text-align:center;
+      padding:60px 20px;
+      animation:fade 1s ease;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .active{
+      display:flex;
+    }
+
+    .card{
+      margin:40px auto;
+      width:90%;
+      max-width:850px;
+      background:rgba(255,255,255,0.08);
+      border-radius:30px;
+      padding:50px;
+      backdrop-filter:blur(15px);
+      box-shadow:0 0 45px rgba(139,92,246,0.25);
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    h1{
+      font-family:'Great Vibes',cursive;
+      font-size:80px;
+      color:#f5d0fe;
+      margin-bottom:20px;
+    }
+
+    h2{
+      font-size:30px;
+      margin-bottom:20px;
+    }
+
+    p{
+      font-size:18px;
+      line-height:2;
+      margin-bottom:20px;
+    }
+
+    input{
+      width:100%;
+      padding:16px;
+      border:none;
+      outline:none;
+      border-radius:50px;
+      margin-top:20px;
+      text-align:center;
+      font-size:16px;
+    }
+
+    button{
+      margin-top:20px;
+      padding:15px 35px;
+      border:none;
+      border-radius:50px;
+      background:linear-gradient(135deg,#8b5cf6,#ec4899);
+      color:white;
+      font-size:17px;
+      cursor:pointer;
+      transition:0.4s;
+      box-shadow:0 0 25px rgba(168,85,247,0.5);
+    }
+
+    button:hover{
+      transform:scale(1.07);
+      background:linear-gradient(135deg,#a855f7,#f472b6);
+    }
+
+    .small{
+      font-size:15px;
+      opacity:0.8;
+    }
+
+    .sorry{
+      font-size:20px;
+      line-height:2.2;
+    }
+
+    .final-line{
+      font-family:'Great Vibes',cursive;
+      font-size:45px;
+      color:#f5d0fe;
+      margin-top:20px;
+    }
+
+    .hearts span{
+      position:absolute;
+      bottom:-20px;
+      color:#c4b5fd;
+      animation:float 10s linear infinite;
+      font-size:25px;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+      }
+      30%{
+        opacity:1;
+      }
+      100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    @media(max-width:768px){
+      h1{
+        font-size:55px;
+      }
+
+      .card{
+        padding:30px;
+      }
+
+      p{
+        font-size:16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hearts">
+  <span style="left:10%;animation-delay:0s;">❤</span>
+  <span style="left:25%;animation-delay:2s;">❤</span>
+  <span style="left:40%;animation-delay:4s;">❤</span>
+  <span style="left:60%;animation-delay:1s;">❤</span>
+  <span style="left:75%;animation-delay:3s;">❤</span>
+  <span style="left:90%;animation-delay:5s;">❤</span>
+</div>
+
+<!-- LOGIN PAGE -->
+<div class="screen active" id="loginPage">
+  <div class="card">
+    <h1>Secret Love</h1>
+    <p>
+      This secret code can only be opened by my love ❤️
+    </p>
+
+    <input type="password" id="secretCode" placeholder="Enter Secret Code">
+
+    <button onclick="checkCode()">Unlock</button>
+
+    <p class="small" id="error"></p>
+  </div>
+</div>
+
+<!-- PAGE 1 -->
+<div class="screen" id="page1">
+  <div class="card">
+    <h1>Happy Birthday</h1>
+
+    <h2>To The Most Special Person ❤️</h2>
+
+    <p>
+      Today is the birthday of the person who changed my life beautifully.
+      Your smile heals my heart and your presence makes everything feel complete.
+    </p>
+
+    <p>
+      I know I am not perfect.
+      I know I make mistakes.
+      But one thing that will never change is my love for you.
+    </p>
+
+    <button onclick="nextPage('page1','page2')">Open My Heart ❤️</button>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="screen" id="page2">
+  <div class="card">
+    <h1>My Sorry</h1>
+
+    <p class="sorry">
+      I am sorry for every moment when I hurt you.
+      <br><br>
+      I am sorry for every misunderstanding.
+      <br><br>
+      I am sorry for every late reply.
+      <br><br>
+      I am sorry for every mood swing.
+      <br><br>
+      I am sorry if I ever made you feel less important.
+      <br><br>
+      Sometimes I fail to express how deeply I love you.
+      <br><br>
+      But trust me...
+      even on my worst days,
+      my heart still chooses you.
+    </p>
+
+    <div style="margin-top:30px;">
+      <button onclick="nextPage('page2','page3')">More Feelings 💖</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="screen" id="page3">
+  <div class="card">
+    <h1>Forever You</h1>
+
+    <p>
+      No matter what happens,
+      you will always remain the most beautiful chapter of my life.
+    </p>
+
+    <p>
+      I wish your birthday brings happiness,
+      peace,
+      success,
+      and endless smiles.
+    </p>
+
+    <p>
+      Thank you for staying,
+      understanding,
+      loving,
+      and tolerating me.
+    </p>
+
+    <div class="final-line">
+      I Love You Forever ❤️
+    </div>
+
+    <button onclick="nextPage('page3','page4')">Last Surprise ✨</button>
+  </div>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="screen" id="page4">
+  <div class="card">
+    <h1>One Last Thing...</h1>
+
+    <p>
+      Happy Birthday My Love ❤️
+    </p>
+
+    <p>
+      You are the most beautiful part of my life, and every moment with you feels magical.
+No matter where life takes us, my heart will always belong to you.
+You turned my ordinary world into something beautiful just by being in it.
+Every heartbeat of mine silently whispers your name
+    </p>
+
+    <div class="final-line">
+      Forever Yours 💖
+    </div>
+
+    <p style="margin-top:25px;font-size:17px;opacity:0.9;">
+      Thank you for being the most beautiful part of my life ❤️
+              "Once again Happy Birthday❤️"
+    </p>
+  </div>
+</div>
+
+<script>
+
+function checkCode(){
+  const code = document.getElementById('secretCode').value;
+
+  if(code === 'eshm123@'){
+    document.getElementById('loginPage').classList.remove('active');
+    document.getElementById('page1').classList.add('active');
+  }
+  else{
+    document.getElementById('error').innerHTML = 'Wrong Secret Code 💔';
+  }
+}
+
+function nextPage(current,next){
+  const currentPage = document.getElementById(current);
+  const nextPage = document.getElementById(next);
+
+  currentPage.style.opacity = '0';
+  currentPage.style.transform = 'translateX(-50px)';
+
+  setTimeout(() => {
+    currentPage.classList.remove('active');
+
+    nextPage.classList.add('active');
+    nextPage.style.opacity = '0';
+    nextPage.style.transform = 'translateX(50px)';
+
+    setTimeout(() => {
+      nextPage.style.transition = 'all 0.8s ease';
+      nextPage.style.opacity = '1';
+      nextPage.style.transform = 'translateX(0px)';
+    }, 50);
+
+  }, 500);
+}
+
+
+</script>
+
+</body>
+</html>
+
